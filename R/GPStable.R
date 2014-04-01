@@ -5,7 +5,7 @@ function(rawdata)
 	Nrow <- nrow(rawdata)
 	
 	gpsdata <- matrix(0,Nrow,8)
-		colnames(gpsdata)<-c("DateTime","Latitude","Longitude","LatRad","LongRad","BeringRad","BeringDeg","DistanceKm")
+		colnames(gpsdata)<-c("DateTime","Latitude","Longitude","LatRad","LongRad","BearingRad","BearingDeg","DistanceKm")
 	gpsdata <-data.frame(gpsdata)
 	
 	#gpsdata[,1] <- 0:(Nrow-1)
@@ -28,7 +28,7 @@ function(rawdata)
 		initialLat<-gpsdata[i,2]
 		finalLat<-gpsdata[i+1,2]
 		#Radians
-		gpsdata[i,6]<-CalcBering(initialLat,initialLong,finalLat,finalLong)
+		gpsdata[i,6]<-CalcBearing(initialLat,initialLong,finalLat,finalLong)
 		#Degrees
 		gpsdata[i,7]<-ifelse(gpsdata[i,6]/(2*pi)*360>0,gpsdata[i,6]/(2*pi)*360,360+gpsdata[i,6]/(2*pi)*360)
 	}

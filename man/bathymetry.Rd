@@ -29,28 +29,33 @@ https://www.bodc.ac.uk/products/software_products/gebco_grid_display/
 
 There are currently two options for the world data file, a 1 arc min
 or 30 arc sec file.  The bathymetry data set is from the GEBCO_08 Grid a global 30 arc-second grid which is the larger
-and more detailed data.  If you have a very wide ranging animal (albatros, elephant seal etc.), the smaller data set 
+and more detailed data.  If you have a very wide ranging animal (albatross, elephant seal etc.), the smaller data set 
 will probably be easier for R to handle and adequate for viewing the entire track, but you might want the more detailed
-dataset to map portions of the track. Some experimentation by you may be necessary here.
+data set to map portions of the track. Some experimentation by you may be necessary here.
 
 This is fairly easy to use, just open the grid viewer and choose whatever way to select the portion of the globe you 
 want to see, I used the "Exact Area" section in the Area tab.  This then produces a map of the data you selected and
-you can then save the data that made that map in an ascii (*.asc) file.  
+you can then export the data that made that map in an ascii (*.asc) file.  In order to import this into R as a data frame you 
+might need to edit the file, such as deleting the header, but especially make sure the delimiters between columns are consistent, in my files I get 
+multiple spaces between one column and a single space between the other column.  R may have a way to deal with this when importing files but 
+I typically open these files up in a text editor such as TextPad, view "Visible Spaces" and then do a find and replace to make the
+column delimiters either tab or comma.
 
 }
 
 \examples{
 data(bathymetry)
 str(bathymetry)
+head(bathymetry);tail(bathymetry)
 bathymetryBogs<-subset(bathymetry,Long<=(-166) & Long >=(-169)
 	& Lat<= 54.5 & Lat >=53,select=Long:Depth)
 
 image.xyz=tapply(bathymetryBogs$Depth, list(bathymetryBogs$Long, bathymetryBogs$Lat), unique)
-#create palatte for depth colors
-Bathymetry.palatte<-colorRampPalette(brewer.pal(9, "Blues"),bias=3)
+#create palette for depth colors
+Bathymetry.palette<-colorRampPalette(brewer.pal(9, "Blues"),bias=3)
 #Plot the background map image
 image.plot(image.xyz,
-	col=c(rev(Bathymetry.palatte(200)),terrain.colors(100)),#gray(0:20/20),
+	col=c(rev(Bathymetry.palette(200)),terrain.colors(100)),#gray(0:20/20),
 	breaks=round(c(seq(from=min(image.xyz),to=0,length.out=201),seq(from=max(image.xyz)/101
 	,to=max(image.xyz),length.out=100)))
 	#,smallplot=2 #plots legend off x axis
@@ -58,11 +63,11 @@ image.plot(image.xyz,
 \dontrun{
 #If you want to map the entire bathymetry file, it takes a while
 image.xyz=tapply(bathymetry$Depth, list(bathymetry$Long, bathymetry$Lat), unique)
-#create palatte for depth colors
-Bathymetry.palatte<-colorRampPalette(brewer.pal(9, "Blues"),bias=3)
+#create palette for depth colors
+Bathymetry.palette<-colorRampPalette(brewer.pal(9, "Blues"),bias=3)
 #Plot the background map image
 image.plot(image.xyz,
-	col=c(rev(Bathymetry.palatte(200)),terrain.colors(100)),#gray(0:20/20),
+	col=c(rev(Bathymetry.palette(200)),terrain.colors(100)),#gray(0:20/20),
 	breaks=round(c(seq(from=min(image.xyz),to=0,length.out=201),seq(from=max(image.xyz)/101
 	,to=max(image.xyz),length.out=100)))
 	#,smallplot=2 #plots legend off x axis

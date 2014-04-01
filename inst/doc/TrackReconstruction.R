@@ -44,7 +44,7 @@
 
 
 ###################################################
-### code chunk number 6: TrackReconstruction.Snw:439-457
+### code chunk number 6: TrackReconstruction.Snw:444-462
 ###################################################
  require(scatterplot3d)
  require(onion)
@@ -83,7 +83,7 @@
 
 
 ###################################################
-### code chunk number 8: TrackReconstruction.Snw:493-499
+### code chunk number 8: TrackReconstruction.Snw:498-504
 ###################################################
  data(georef1min01)
  limits<-GraphLimits(georef1min01)
@@ -122,7 +122,7 @@
 
 
 ###################################################
-### code chunk number 10: TrackReconstruction.Snw:532-533
+### code chunk number 10: TrackReconstruction.Snw:537-538
 ###################################################
  scatterplot3d(georef1min01$Longitude,georef1min01$Latitude,(georef1min01$Depth*-1),
  	color="black",#ifelse(georef1min01$SunTimes==1,"red","black"), shades night
@@ -150,7 +150,7 @@
 
 
 ###################################################
-### code chunk number 11: TrackReconstruction.Snw:581-584
+### code chunk number 11: TrackReconstruction.Snw:586-589
 ###################################################
  DateData<-seq(ISOdatetime(2009,07,14,00,00,00, tz="GMT"),ISOdatetime(2009,07,28,00,00,00,
  	tz="GMT"), by="min")

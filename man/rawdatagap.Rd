@@ -5,7 +5,7 @@
 Raw biologger data with a gap
 }
 \description{
-Raw data file from a fur seal with a gap in the data file.
+Raw data file from a fur seal with a gap in the data file.  Used as an example in the \code{GapFinder} function.
 }
 \usage{data(rawdatagap)}
 \format{
@@ -25,7 +25,8 @@ Raw data file from a fur seal with a gap in the data file.
 
 \examples{
 data(rawdatagap)
+head(rawdatagap);tail(rawdatagap)
 str(rawdatagap)
-plot(rawdatagap$AccSurge)
+plot(rawdatagap$AccHeave)
 }
 \keyword{datasets}

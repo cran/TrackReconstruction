@@ -5,7 +5,7 @@
 Standardize accelerometer and magnetometer data
 }
 \description{
-Provides intercept and slope values to standardizes accelerometer and magnetometer data to values between
+Provides intercept and slope values to standardize accelerometer and magnetometer data to values between
 -1 and +1.
 }
 \usage{
@@ -79,12 +79,13 @@ maximal reading for each axis will be when the front, top or left side is facing
 inclination of the magnetic field (the angle at which the magnetic field enters the earth) at that location on the planet.
 If the tag sensors conform to this rule all the orientation parameters should be 1, any sensors that are oppsoit to this
 should have -1 as an orientation value.  Instead of labeling the tag in X,Y and Z dimensions, the directions are labeled
-as Surge, Heave and Sway where Surge indicates the front(anterior) and back(posterios) axis, the Heave is the 
-top(dorsal) and bottom(ventral) axis and the Sway is the right and left(lateral) axis.
+as Surge, Heave and Sway where Surge indicates the front (anterior) to back (posterios) axis, the Heave is the 
+top (dorsal) to bottom (ventral) axis and the Sway is the right to left (lateral) axis.
 }
 \value{
-returns a [2,6] matrix with intercept in the first row and slope in the second row and columns in the order of the 
-orientation parameter input.
+Returns a [2,6] matrix with intercept in the first row and slope in the second row and columns in the order of the 
+orientation parameter input.  Row names are c("B0 Intercept","B1 Sloope") and column names are
+c("MagSurge","MagHeave","MagSway","AccSurge","AccHeave","AccSway").
 }
 
 \author{

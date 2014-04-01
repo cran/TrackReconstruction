@@ -1,15 +1,15 @@
-\name{CalcDistance}
-\alias{CalcDistance}
+\name{CalcBearing}
+\alias{CalcBearing}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Calculate Distance Between Two Points
+Calculate Bearing
 }
 \description{
-Calculates the distance between two points on the globe given latitude and longitude in decimal degrees and returning
-distance in kilometers.
+Calculates Bearing given initial latitude and longitude and ending latitude and longitude in decimal degrees and returns
+bearing in radians.
 }
 \usage{
-CalcDistance(initialLat, initialLong, finalLat, finalLong)
+CalcBearing(initialLat, initialLong, finalLat, finalLong)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,11 +28,12 @@ ending Longitude
 }
 \details{
 Data must be provided in decimal degrees (e.g. 162.546).  Longitude values west of the prime meridian are 0 to -180.
-Latitude values south of the equator are 0 to -90.  This function is primarily used internally in the \code{GPStable} and 
-\code{GeoReference} functions.
+Latitude values south of the equator are 0 to -90.  As one travels from point A to point B, the bearing to point B 
+changes.  This function calculates the bearing from point A to point B AT point A.  This function is primarily used 
+internally in the \code{GPStable} and \code{GeoReference} functions.
 }
 \value{
-Distance in Kilometers
+Bearing in Radians
 }
 \references{
 \url{http://www.movable-type.co.uk/scripts/latlong.html}
@@ -40,14 +41,12 @@ Distance in Kilometers
 \author{
 Brian Battaile
 }
-
 \examples{
-##Distance from New York to Los Angeles given Latitude and Longitude of New York and Los Angeles.
-Howfar<-CalcDistance(40.7697,-73.9735,34.0522,-118.2428)
-Howfar
-
+#Bearing to Los Angeles from New York
+Bearing<-CalcBearing(40.7697,-73.9735,34.0522,-118.2428)
+Bearing
+Bearing*360/(2*pi) #transform radians to degrees
 }
-
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }

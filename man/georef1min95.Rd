@@ -6,18 +6,19 @@ GeoReferenced fur seal track
 }
 \description{
 Georeferenced data from a fur seal track in the Bering Sea.  Data has been thinned to relocations
-every 1 minute.
+every 1 minute.  This data set is used as an example in the \code{Mapper} function.  
+gpsdata95 is the complementary gps data for this pseudotrack.
 }
 \usage{data(georef1min95)}
 \format{
   A data frame with 6566 observations on the following 6 variables.
   \describe{
     \item{\code{DateTime}}{a character vector}
-    \item{\code{LatRad}}{a numeric vector Latitude given in Radians}
-    \item{\code{LongRad}}{a numeric vector Longitude given in Radians}
-    \item{\code{Latitude}}{a numeric vector Latitude given in decimal degrees}
-    \item{\code{Longitude}}{a numeric vector Longitude given in decimal degrees}
-    \item{\code{Depth}}{a numeric vector in meters}
+    \item{\code{LatRad}}{a numeric vector, latitude given in radians}
+    \item{\code{LongRad}}{a numeric vector, longitude given in radians}
+    \item{\code{Latitude}}{a numeric vector, latitude given in decimal degrees}
+    \item{\code{Longitude}}{a numeric vector, longitude given in decimal degrees}
+    \item{\code{Depth}}{a numeric vector, in meters}
   }
 }
 \details{
@@ -25,6 +26,7 @@ Date files georef1min01, georef1min02, georef1min03 and georef1min26 have the sa
 }
 \examples{
 data(georef1min95)
+head(georef1min95);tail(georef1min95)
 str(georef1min95)
 plot(georef1min95$Longitude, georef1min95$Latitude,pch=".")
 data(gpsdata95)

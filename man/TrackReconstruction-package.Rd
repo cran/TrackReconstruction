@@ -8,21 +8,21 @@ Reconstruct animal tracks from biologger data.
 }
 \description{
 
-Given accelerometer, magnetometer, depth and optional speed data, will reconstruct animal paths.  Given GPS data, 
-pseudotracks can be geolocated.  The package was designed using fur seals but is probably suitable as a launching 
+Given accelerometer, magnetometer, depth and optional speed data, this package will reconstruct animal paths.  Given GPS data, 
+pseudotracks can be geolocated.  The package was designed using northern fur seals (\code{Callorhinus ursinus}) but is probably suitable as a launching 
 pad for other air breathing marine vertebtrates.
 }
 \details{
 \tabular{ll}{
 Package: \tab TrackReconstruction\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-03-13\cr
+Version: \tab 1.1\cr
+Date: \tab 2014-04-01\cr
 License: \tab GPL (>=2)\cr
 }
 Includes functions to Standardize logger data, format GPS data, find gaps in the raw data, navigation functions to 
-caluclate distance, bering, latitude and longitude, functions to calculate pseudotracks, to georeference the tracks
-and finally to plot the tracks.  A vignette includes some additional Perl code to deal with large data files as well
+caluclate distance, bearing, latitude and longitude, functions to calculate pseudotracks, to georeference the tracks
+and finally to plot the tracks with color bathymetry.  A vignette includes some additional Perl code to deal with large data files as well
 as additional plotting code to make 3D plots and 2D animations.
 
 DeadReckoning
@@ -39,7 +39,7 @@ GraphLimits
 
 Mapper
 
-Navigation Functions (CalcBering CalcLatitude CalcLongitude CalcDistance)
+Navigation Functions (CalcBearing CalcLatitude CalcLongitude CalcDistance)
 
 Splitter
 
@@ -92,12 +92,12 @@ points(gpsformat$Longitude[3:6],gpsformat$Latitude[3:6],pch="*",col="Red")
 data(bathymetry)
 #This may take a minute or two
 image.xyz=tapply(bathymetry$Depth, list(bathymetry$Long, bathymetry$Lat), unique)
-Mapper(Georeferenced, gpsformat[2:7,], image.xyz, ExpFact = 120, minlat = 51, maxlat = 60,
+Mapper(Georeferenced, gpsformat[2:7,], image.xyz, ExpFact = 500, minlat = 51, maxlat = 60,
 minlong = -177, maxlong = -163, Title = "Fun Graph!!!")
 #That entire animals trip plotted
 data(georef1min02)
 data(gpsdata02)
-Mapper(georef1min02, gpsdata02, image.xyz, ExpFact = 120, minlat = 51, maxlat = 60,
+Mapper(georef1min02, gpsdata02, image.xyz, ExpFact = 500, minlat = 51, maxlat = 60,
 minlong = -177, maxlong = -163, Title = "Fun Graph!!!")
 }
 }

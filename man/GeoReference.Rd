@@ -7,7 +7,7 @@ Georeference the Dead Reckoning data between two GPS points
 \description{
 Takes relocation data and forces it to go through two known points (such as GPS fixes) at the beginning and end by 
 rotating the track and either expanding or contracting each section by a constant percentage.  The primary function used
-in the wrapper function GeoReference
+in the wrapper function \code{GeoRef}.
 }
 \usage{
 GeoReference(drdata, gpsdata)
@@ -18,16 +18,17 @@ GeoReference(drdata, gpsdata)
 Data frame produced by the DeadReckoning function
 }
   \item{gpsdata}{
-Data from two gps points including DateTime, LatDeg, LongDeg, LatRad, LongRad, BeringRad, Bering Deg and DistanceKm. 
-Two data rows taken from results of GPStable function.
+Data frame produced by the \code{GPStable} function.
 }
 }
 \details{
-TimeDate stamp of first entry of drdata and gpsdata must be the same.
+TimeDate stamp of first entry of drdata and gpsdata must be the same.  The \code{GeoRef} function does this 
+for you my matching the DateTime stamp in the drdata and gpsdata.  The DateTime stamp of the drdata and gpsdata
+must be in the same format.
 }
 \value{
-Returns a data frame with DateTime, Distance, LatRad, LongRad, Latitude, Longitude, Depth, Speed, X, Y, and Bering
-of the GeoReferenced DeadReckoning tracks.  X and Y are cartesian coordinates in meters.  Distance is the distance 
+Returns a data frame with DateTime, Distance, LatRad, LongRad, Latitude, Longitude, Depth, Speed, NewX, NewY, and Bearing
+of the GeoReferenced DeadReckoning tracks.  NewX and NewY are cartesian coordinates in meters.  Distance is the distance 
 from the origin to the new point in 2D.
 }
 \references{
@@ -47,7 +48,7 @@ betas<-Standardize(1,1,-1,1,1,1,-57.8,68.76,-61.8,64.2,-70.16,58.08,
 	-10.1,9.55,-9.75,9.72,-9.91,9.43)
 #get declination and inclination data for study area
 decinc<-c(10.228,65.918)
-#data set with 11 associated GPS fixes in the "gpsdata" data set
+#data set with 7 associated GPS fixes in the "gpsdata02" data set
 data(rawdata)
 DRoutput<-DeadReckoning(rawdata,betas,decinc,Hz=16,RmL=2,DepthHz=1,SpdCalc=3,MaxSpd=3.5)
 #prepare GPS data

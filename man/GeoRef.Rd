@@ -5,8 +5,7 @@
 Georeference the Dead Reckoning data
 }
 \description{
-A wrapper function for the GeoReference function that Georeferences a deadreckoning track with multiple GPS relocations
-within it.
+A wrapper function for the \code{GeoReference} function that georeferences a deadreckoning track with multiple GPS relocations.
 }
 \usage{
 GeoRef(drdata, gpsfdata)
@@ -14,19 +13,19 @@ GeoRef(drdata, gpsfdata)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{drdata}{
-Data frame produced by the DeadReckoning function
+Data frame produced by the \code{DeadReckoning} function
 }
   \item{gpsfdata}{
-Data from two gps points including DateTime, LatDeg, LongDeg, LatRad, LongRad, BeringRad, Bering Deg and DistanceKm. 
-Two data rows taken from results of GPStable function.
+Data frame produced by the \code{GPStable} function.
 }
 }
 \details{
-Data that is not bookended by the DateTime stamp of the GPS relocations will be discarded.
+Data that is not bookended by the DateTime stamp of the GPS relocations will be discarded.  The DateTime stamp of the drdata and gpsfdata
+must be in the same format.
 }
 \value{
-Returns a data frame with DateTime, Distance, LatRad, LongRad, Latitude, Longitude, Depth, Speed, X, Y, and Bering
-of the GeoReferenced DeadReckoning tracks.  X and Y are cartesian coordinates in meters.  Distance is the distance 
+Returns a data frame with DateTime, Distance, LatRad, LongRad, Latitude, Longitude, Depth, Speed, NewX, NewY, and Bering
+of the GeoReferenced DeadReckoning tracks.  NewX and NewY are cartesian coordinates in meters.  Distance is the distance 
 from the origin to the new point in 2D.
 }
 \references{

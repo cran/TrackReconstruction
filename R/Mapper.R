@@ -1,5 +1,4 @@
-Mapper <-
-function(inFile, gpsFile, bathyFile, ExpFact=120, minlat=51, maxlat=60, minlong=-177, maxlong=-163, Title="Main")
+Mapper <-function(inFile, gpsFile, bathyFile, ExpFact=500, minlat=51, maxlat=60, minlong=-177, maxlong=-163, Title="Main")
 {
 	#This part creates a low resolution image
 	#image.plot(bathyFile,
@@ -17,11 +16,11 @@ function(inFile, gpsFile, bathyFile, ExpFact=120, minlat=51, maxlat=60, minlong=
 	
 	#Create smoothed image data using functions from fields package
 	vec<-as.vector(bathyFile)
-	matt=matrix(vec,nrow=((maxlong-minlong)*ExpFact),ncol=((maxlat-minlat)*ExpFact))
-	lat=seq(((Sminlat-minlat)*ExpFact),((Smaxlat-minlat)*ExpFact),,1000)#((Smaxlat-Sminlat)*120*10))
-	long=seq(((Sminlong-minlong)*ExpFact),((Smaxlong-minlong)*ExpFact),,1000)#((Smaxlong-Sminlong)*120*10))
+	matt=matrix(vec,nrow=((maxlong-minlong)*120),ncol=((maxlat-minlat)*120))
+	lat=seq(((Sminlat-minlat)*120),((Smaxlat-minlat)*120),,ExpFact)#((Smaxlat-Sminlat)*120*10))
+	long=seq(((Sminlong-minlong)*120),((Smaxlong-minlong)*120),,ExpFact)#((Smaxlong-Sminlong)*120*10))
 	loc<-make.surface.grid(list(long,lat))
-	objj<-list(x=1:((maxlong-minlong)*ExpFact),y=1:((maxlat-minlat)*ExpFact),z=matt)
+	objj<-list(x=1:((maxlong-minlong)*120),y=1:((maxlat-minlat)*120),z=matt)
 	interp.surface(objj, loc)-> look
 	
 	#Create palatte for depth colors
@@ -39,17 +38,17 @@ function(inFile, gpsFile, bathyFile, ExpFact=120, minlat=51, maxlat=60, minlong=
 		xlab="Longitude",
 		ylab="Latitude"
 	)
-	points((inFile$Longitude-minlong)*ExpFact,(inFile$Latitude-minlat)*ExpFact,
+	points((inFile$Longitude-minlong)*120,(inFile$Latitude-minlat)*120,
 		#col=ifelse(inFile$SunTimes==1,"red","black"),
 		pch=".",
 		cex=1
 	)
-	points((gpsFile$Longitude-minlong)*ExpFact,(gpsFile$Latitude-minlat)*ExpFact,
+	points((gpsFile$Longitude-minlong)*120,(gpsFile$Latitude-minlat)*120,
 		col="red",
 		pch="*",
 		cex=1
 	)	
-	axis(1,at=seq(from=((Sminlong-minlong)*ExpFact),to=((Smaxlong-minlong)*ExpFact), by=(((Smaxlong-minlong)*ExpFact)-((Sminlong-minlong)*ExpFact))/5),labels=round(seq(from=Sminlong,to=Smaxlong, by=(Smaxlong-Sminlong)/5),digits=1))
-	axis(2,at=seq(from=((Sminlat-minlat)*ExpFact),to=((Smaxlat-minlat)*ExpFact), by=(((Smaxlat-minlat)*ExpFact)-((Sminlat-minlat)*ExpFact))/5),labels=round(seq(from=Sminlat,to=Smaxlat, by=(Smaxlat-Sminlat)/5),digits=1))
+	axis(1,at=seq(from=((Sminlong-minlong)*120),to=((Smaxlong-minlong)*120), by=(((Smaxlong-minlong)*120)-((Sminlong-minlong)*120))/5),labels=round(seq(from=Sminlong,to=Smaxlong, by=(Smaxlong-Sminlong)/5),digits=1))
+	axis(2,at=seq(from=((Sminlat-minlat)*120),to=((Smaxlat-minlat)*120), by=(((Smaxlat-minlat)*120)-((Sminlat-minlat)*120))/5),labels=round(seq(from=Sminlat,to=Smaxlat, by=(Smaxlat-Sminlat)/5),digits=1))
 	#dev.off()
 }

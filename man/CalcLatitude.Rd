@@ -5,10 +5,10 @@
 Calculate Latitude
 }
 \description{
-Calculates an unknown Latitude given an initial Latitude, distance traveled in meters and bering.
+Calculates an unknown latitude given an initial latitude, distance traveled in meters and bearing.
 }
 \usage{
-CalcLatitude(initialLat, distance, bering)
+CalcLatitude(initialLat, distance, bearing)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,14 +18,14 @@ initial Latitude
   \item{distance}{
 distance in meters
 }
-  \item{bering}{
-bering in radians
+  \item{bearing}{
+bearing in radians
 }
 }
 \details{
 Data must be provided in decimal degrees (e.g.162.546).  Longitude values west of the prime meridian are 0 to -180.
-Latitude values south of the equator are 0 to -90.  Calculates an unknown Latutude given an initial Latitude, distance traveled in meters and bering
-in radians.  This function is primarily used internally in the gpstable and GeoReference functions.
+Latitude values south of the equator are 0 to -90.  Calculates an unknown latutude given an initial latitude, distance traveled in meters and bearing
+in radians.  This function is primarily used internally in the \code{gpstable} and \code{GeoReference} functions.
 }
 \value{
 Latitude in radians
@@ -37,7 +37,8 @@ Latitude in radians
 Brian Battaile
 }
 \examples{
-##Latitude of Los Angeles starting in Manhattan
+#Calculate the latitude of Los Angeles given a starting point in Manhattan and the distance 
+#and bearing to Los Angeles.
 Lat<-CalcLatitude (40.7697,3938000,-1.507516)
 #transform to degrees
 Lat*360/(2*pi)

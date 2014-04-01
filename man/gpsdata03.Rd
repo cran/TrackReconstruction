@@ -5,7 +5,8 @@
 GPS raw data
 }
 \description{
-Complete raw gps file for northern fur seal track in the Bering Sea.  Data taken by a wildlife computers mk10-F tag.
+Complete gps file for northern fur seal track in the Bering Sea.  Data taken by a wildlife computers mk10-F tag.  
+georef1min03 is the complementary pseudotrack data for these gps points.
 }
 \usage{data(gpsdata03)}
 \format{
@@ -19,6 +20,7 @@ Complete raw gps file for northern fur seal track in the Bering Sea.  Data taken
 
 \examples{
 data(gpsdata03)
+head(gpsdata03);tail(gpsdata03)
 str(gpsdata03)
 plot(gpsdata03$Longitude,gpsdata03$Latitude)
 }

@@ -1,4 +1,4 @@
-#GraphLimits=function(infile)
+#GraphLimits1=function(infile)
 #{
 #	maxlat=max(infile$Latitude)
 #	minlat=min(infile$Latitude)

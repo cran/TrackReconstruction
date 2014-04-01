@@ -5,8 +5,8 @@
 Determine Latitude and Longitude limits of a graph
 }
 \description{
-Finds the minimum and maximum of the longitude and latitude and then adds on 2.5-5\% of the Lat and Long to create 
-boarders in the graph
+Finds the minimum and maximum of the longitude and latitude and then adds on 2.5\% of the latitude and longitude to create 
+boarders in the graph and accounts in a very simple way for projection distortion so long as maps are not to large.   
 }
 \usage{
 GraphLimits(infile)
@@ -17,7 +17,9 @@ A file with columns of latitude and longitude labeled as Latitude and Longitude
 }
 }
 \details{
-Internal function used in the Mapper function.
+Internal function used in the Mapper function.  It attempts to account for the change in distance covered between longitude as latitude changes
+by using the cos(latitude) of the center of the latitude of the graph, and adjusting the longitude to cover the same distance.  Hence, the boarders
+on the graph are set first by making the distances in latitude and longitude approximately equal in meters, then 2.5\% is added on each end.
 }
 \value{
 Returns a list of 4 scalars defining the boarders of the data

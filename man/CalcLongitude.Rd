@@ -5,17 +5,17 @@
 Calculate Longitude
 }
 \description{
-Calculate the Longitude of a destination given initial Latitude and Longitude, distance traveled, bering and final Latitude.
+Calculate the longitude of a destination given initial latitude and longitude, distance traveled, bearing and final latitude.
 }
 \usage{
-CalcLongitude(initialLat, matchingLat, initialLong, distance, bering)
+CalcLongitude(initialLat, destinationLat, initialLong, distance, bearing)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{initialLat}{
 initial Latitude
 }
-  \item{matchingLat}{
+  \item{destinationLat}{
 final Latitude
 }
   \item{initialLong}{
@@ -24,15 +24,15 @@ initial Longitude
   \item{distance}{
 distance from initial to final in meters
 }
-  \item{bering}{
-bering from point of departure to final destination
+  \item{bearing}{
+bearing from point of departure to final destination
 }
 }
 \details{
-Calculates a destinations Longitude given initial Latitude and Longitude in degrees (e.g.162.546, Longitude values west 
-of the prime meridian are 0 to -180.  Latitude values south of the equator are 0 to -90), destination Latitude in 
-RADIANS (result of CalcLatitude function), distance traveled in meters and bering in radians.  This function is 
-primarily used internally in the GPStable and GeoReference functions.
+Calculates a destination's longitude given initial latitude and longitude in degrees (e.g.162.546, Longitude values west 
+of the prime meridian are 0 to -180.  Latitude values south of the equator are 0 to -90), destination latitude in 
+RADIANS (result of \code{CalcLatitude} function), distance traveled in meters and bearing in radians.  This function is 
+primarily used internally in the \code{GPStable} and \code{GeoReference} functions.
 }
 \value{
 Longitude of final destination in radians.
@@ -45,7 +45,7 @@ Brian Battaile
 }
 
 \examples{
-##Latitude of Los Angeles starting in Manhattan
+#Longitude of Los Angeles starting in Manhattan
 Long <- CalcLongitude(40.7697,0.5943228,-73.9735,3938000,-1.507516)
 #transform to degrees
 Long*360/(2*pi)

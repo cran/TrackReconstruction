@@ -5,7 +5,8 @@
 Format GPS data
 }
 \description{
-Takes DateTime, Latitude and Longitude in Decimal Degrees and converts Latitude and Longitude into radians and calculates bering and distance between consecutive locations 
+Takes DateTime, Latitude and Longitude in Decimal Degrees and converts Latitude and Longitude into radians and calculates bearing
+and distance between consecutive locations 
 }
 \usage{
 GPStable(rawdata)
@@ -19,12 +20,14 @@ in decimal degrees.  Must use those column labels.
 }
 \details{
 Data must be provided in decimal degrees (e.g. 162.546).  Longitude values west of the prime meridian are 0 to -180.
-Latitude values south of the equator are 0 to -90.  DateTime must be in the same format as output of DeadReckoning 
+Latitude values south of the equator are 0 to -90.  DateTime must be in the same format as output of \code{DeadReckoning} 
 function or seperated as Date and Time that can be pasted together to create the same format as output of Deadreckoning 
 function.  Distance is calculated using the Spherical Law of Cosines (see references).
 }
 \value{
-Returns a data frame with columns DateTime, Latitude(Decimal Degrees), Longitude(Decimal Degrees), LatRad(Radians), LongRad(Radians), BeringRad, BeringDeg, DistanceKm.  BeringRad and BeringDeg are the Bering calculated from that point to the next point.  DistanceKm is the distance between that point and the previous point.
+Returns a data frame with columns DateTime, Latitude(Decimal Degrees), Longitude(Decimal Degrees), LatRad(Radians), LongRad(Radians),
+BearingRad, BearingDeg, DistanceKm.  BearingRad and BearingDeg are the bearing calculated from point x to point x+1.  
+DistanceKm is the distance between point x and point x-1.
 }
 \references{
 \url{http://www.movable-type.co.uk/scripts/latlong.html}

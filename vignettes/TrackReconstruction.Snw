@@ -56,7 +56,7 @@ DateTime<-as.character(DateTime)
 \end{Schunk}
 You shouldn't need the \textit {as.character} function if you used the \textit {StringsAsFactor=FALSE}, but in my experience.....it never hurts. 
 
-Spend some time with the \textit {strptime} help page as that will help you translate the gobildygook after the \textit {format} option.  If you were smart and exported your data from your tags all in the same format you need not worry about this.  In addition, the TrackReconstruction functions will paste together Time and Date files for you if they are in separate columns and already in the same format.  Always check the results of your call to \textit {strptime}, if you get a bunch of NA's, your gobildygook for \textit {format} was probably wrong.  R's default format is 2009-08-12 05:45:35, which is what the \textit {strptime} function returns, so if you can export your data from your tag in this format you are probably better off in the long run.  Because Accelerometers collect data many times a second, you may also want to deal with fractions of a second.  Otherwise, you will end up with multiple equivalent DateTime numbering at your sampling Hz.
+Spend some time with the \textit {strptime} help page as that will help you translate the gobildygook after the \textit {format} option.  If you were smart and exported your data from your tags all in the same format you need not worry about this.  In addition, the TrackReconstruction functions will paste together Time and Date files for you if they are in separate columns and already in the same format.  Always check the results of your call to \textit {strptime}, if you get a bunch of NA's, your gobildygook for \textit {format} was probably wrong.  R's default format is 2009-08-12 05:45:35, which is what the \textit {strptime} function returns, so if you can export your data from your tag in this format you are probably better off in the long run.  Because accelerometers collect data many times a second, you may also want to deal with fractions of a second.  Otherwise, you will end up with multiple equivalent DateTime numberings at your sampling Hz.
 \begin{Schunk}
 \begin{Sinput}
 options(digits.secs=4)
@@ -347,9 +347,9 @@ So this tells you what line of the data file that gap occurs and how large they 
 
 \subsection{GPStable function}
 The \textit {GPStable} function formats your GPS latitude and longitude data file into something directly importable into the
-\textit {GeoReference} function and calculates the distance between points, bering from one point to the next in degrees and
+\textit {GeoReference} function and calculates the distance between points, bearing from one point to the next in degrees and
 radians and converts the latitude and longitude degrees into radians.  All navigation functions use radians.  The
-\textit {CalBering}, and \textit {CalcDistance} functions are called in the \textit {GPStable} function.
+\textit {CalBearing}, and \textit {CalcDistance} functions are called in the \textit {GPStable} function.
 
 <<>>=
  data(gpsdata02)
@@ -378,7 +378,7 @@ for the study area which can be gotten at\\
 
 \begin{figure}
 \begin{center}
-\includegraphics{TrackReconstructionVignette3-019.jpg}
+\includegraphics{TrackReconstructionPlotFig-006.jpg}
 \end{center}
 \caption{Raw Dead Reckoning plot}
 \end{figure}
@@ -402,7 +402,7 @@ the \textit {DeadReckoning} and \textit {GPStable} functions so we can just put 
 
 \begin{figure}
 \begin{center}
-\includegraphics{TrackReconstructionVignette3-022.jpg}
+\includegraphics{TrackReconstructionPlotFig-009.jpg}
 \end{center}
 \caption{GeoReferenced plot}
 \end{figure}
@@ -415,6 +415,11 @@ the \textit {DeadReckoning} and \textit {GPStable} functions so we can just put 
  points(gpsformat$Longitude[6],gpsformat$Latitude[6],pch="F",col="Blue") #Finish
 \end{Sinput}
 \end{Schunk}
+
+\subsection{GeoRef function}
+The /textit {GeoRef} function is a wrapper for the GeoReference function that forces your deadreckoning track
+through multiple known locations at once, basically it just loops the GeoReference function through all of
+your dead reckoning data and GPS locations.
 
 \section {Graphing}
 \subsection{Color Graphing}
@@ -472,7 +477,7 @@ you can then save the data that made that map in an ascii (*.asc) file.
 @
 \begin{figure}
 \begin{center}
-\includegraphics{TrackReconstructionVignette3-026.jpg}
+\includegraphics{TrackReconstructionPlotFig-012.jpg}
 \end{center}
 \caption{Eastern Bering Sea Bathymetry}
 \end{figure}

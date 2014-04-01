@@ -77,6 +77,7 @@ DeadReckoning <- function(rawdata, betas, decinc, Hz=16, RmL=2, DepthHz=1, SpdCa
 	#calcspd=matrix(0,dims[1],1)
 	#calcspd[16:(dims[1]-16),1]=((xaccdba[16:(dims[1]-16)]-minxacc)^(1/spdmdl$minimum))/16 #!!!!BUT CHECK THIS LINE
 	#calcspd[16:(dims[1]-16),1]=calcspd[16:(dims[1]-16),1]+match(calcspd[16:(dims[1]-16),1],0,nomatch=0)*0.0000001 #This turns speeds of 0 into 0.0000001
+	#Assume constant speed
 	if(SpdCalc==4)
 	{
 		calcspd<-matrix(MaxSpd,dims[1],1)

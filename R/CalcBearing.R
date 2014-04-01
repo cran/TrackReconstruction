@@ -1,4 +1,4 @@
-CalcBering <-
+CalcBearing <-
 function(initialLat,initialLong,finalLat,finalLong)
 {
 	initialLat<-initialLat/360*2*pi

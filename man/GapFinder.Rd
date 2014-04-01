@@ -17,7 +17,10 @@ GapFinder(rawdata, timediff = 1, timeformat = "\%d-\%b-\%Y \%H:\%M:\%S")
 Data with a combined DateTime or seperate Date and Time stamp columns labeled as such.
 }
   \item{timediff}{
-The amount of time in seconds that is expected between each entry(row)
+The amount of time in seconds that is expected between each entry (row).  Typically this would be
+your data collection Hz but results will depend on whether or not you have information on decimal seconds.  
+One second is probably small enough for most people and will aviod issues with decimal seconds, but this depends on 
+the scale that is important to you.
 }
 \item{timeformat}{
 Format of the DateTime or seperate Date and Time stamp after it is pasted together with a space between. 
@@ -38,6 +41,9 @@ Brian Battaile
 \examples{
 data(rawdatagap)
 gaps<-GapFinder(rawdatagap, timediff = 1, timeformat = "\%d-\%b-\%Y \%H:\%M:\%S")
+
+#how timediff and a lack of decimal seconds information interact given an Hz of 16.
+gaps<-GapFinder(rawdatagap, timediff = 1/16, timeformat = "\%d-\%b-\%Y \%H:\%M:\%S")
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
