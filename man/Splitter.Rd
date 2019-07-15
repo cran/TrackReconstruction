@@ -6,8 +6,8 @@ Splits large data files by date and time.
 }
 \description{
 This function takes the large data files inherently produced by accelerometer and magnetometer biologgers and splits
-them into smaller files so that the TrackReconstruction functions can handle them or it splits the data between trips
-or GPS locations or however is needed.  The splitting is done via matching Time and Date as.character.
+them into smaller files so that the \code{TrackReconstruction} functions can handle them or it splits the data between trips
+or GPS locations or however is needed.  The splitting is done via matching Time and Date as character strings.
 }
 \usage{
 Splitter(TagFile,Begin,End,RmL,Hz)
@@ -19,35 +19,34 @@ Matrix or data frame of magnetometer and accelerometer and other data collected 
 }
   \item{Begin}{
 A vector of DateTime such as 2009-08-12 05:45:35.0625 indicating the time that the new files should begin.  Format must be the same as the
-Date and Time data in the TagFile, though the TagFile Date and Time need not be in the same column.
+Date and Time data in the \code{TagFile}, though the \code{TagFile} Date and Time need not be in the same column.
 }
   \item{End}{
 A vector of DateTime such as 2009-08-12 05:45:35.0625 indicating the time that the new files should end.  Format must be the same as the
-Date and Time data in the TagFile, though the TagFile Date and Time need not be in the same column.
+Date and Time data in the \code{TagFile}, though the \code{TagFile} Date and Time need not be in the same column.
 }
   \item{RmL}{
-Running mean length in seconds, required to calculate the amount of time beyond the Begin and End times that is required for the DeadReckoning
-function and is trimmed off by the DeadReckoning function.
+Running mean length in seconds, required to calculate the amount of time beyond the \code{Begin} and \code{End} times that is required for the \code{DeadReckoning}
+function and is trimmed off by the \code{DeadReckoning} function.
 }
   \item{Hz}{
-Frequency of Accelerometer data collection in Hz, required to calculate the amount of time beyond the Begin and End times that is required for the DeadReckoning
-function and is trimmed off by the DeadReckoning function.
+Frequency of Accelerometer data collection in Hz, required to calculate the amount of time beyond the Begin and End times that is required for the \code{DeadReckoning}
+function and is trimmed off by the \code{DeadReckoning} function.
 }
 }
 \details{
-TagFile must have columns named DateTime or seperated as Date and Time.  Begin and End must be in the same format as the DateTime 
-column in TagFile or have the same format as the Date and Time columns when they are pasted together by \code{Splitter}.  For example, if
-DateTime is 2009-08-21 14:08:06.0625, then Begin and End cannot be Jul/21/2009 14:08:06.0625.  See strptime for formatting
-date and time data.  If TagFile has a Date column of 2009-08-21 and a Time column of 14:08:06.0625, Splitter will paste them
-together for you to look like 2009-08-21 14:08:06.0625.  You must have enough time on the beginning and end of the TagFile
-equivalent to RmL*Hz/2 from the first DateTime in the Begin vector and the last DateTime in the End vector.  Often the Begin
-and End dates will have the exact same DateTimes except for the first DateTime in the Begin vector and the last DateTime in the End vector.
-If your Hz is greater than 1 and you do not have data on fractions of a second, then each time stamp will have equivalents equal to your 
+\code{TagFile} must have columns named DateTime or separated as Date and Time.  \code{Begin} and \code{End} must be in the same format as the DateTime 
+column in \code{TagFile} or have the same format as the Date and Time columns when they are pasted together by \code{Splitter}.  For example, if
+DateTime is 2009-08-21 14:08:06.0625, then \code{Begin} and \code{End} cannot be Jul/21/2009 14:08:06.0625.  See \code{strptime} for formatting
+date and time data.  If \code{TagFile} has a Date column of 2009-08-21 and a Time column of 14:08:06.0625, \code{Splitter} will paste them
+together for you to look like 2009-08-21 14:08:06.0625.  You must have enough time on the beginning and end of the \code{TagFile}
+equivalent to \code{RmL}*Hz/2 before the first DateTime in the \code{Begin} vector and after the last DateTime in the \code{End} vector.  
+If your Hz is greater than 1 and you do not have data on fractions of a second, then each time stamp will have copies equal to your 
 sampling Hz.  In such a case, the program matches with the first instance of the DateTime and warnings will be given, this may be important
-when calculating RmL*Hz/2 tails.
+when calculating \code{RmL}*Hz/2 tails.
 }
 \value{
-Creates a list of data frames in the format of the TagFile, but with a single DateTime column if the TagFiles had seperate Date and Time
+Creates a list of data frames in the format of the \code{TagFile}, but with a single DateTime column if the \code{TagFiles} had separate Date and Time
 columns.
 }
 \author{

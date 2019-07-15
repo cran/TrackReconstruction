@@ -35,7 +35,7 @@ Latitude values south of the equator are 0 to -90.  This function is primarily u
 Distance in Kilometers
 }
 \references{
-\url{http://www.movable-type.co.uk/scripts/latlong.html}
+https://www.movable-type.co.uk/scripts/latlong.html
 }
 \author{
 Brian Battaile
@@ -50,5 +50,3 @@ Howfar
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

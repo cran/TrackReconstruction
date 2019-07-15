@@ -1,5 +1,5 @@
 #Data must have rows of length Hz*RmL*0.5 on each end that will be trimmed in the final output.
-DeadReckoning <- function(rawdata, betas, decinc, Hz=16, RmL=2, DepthHz=1, SpdCalc=1, MaxSpd=NULL)#RmL=runningmean length
+DeadReckoning <- function(rawdata, betas, decinc, Hz=16, RmL=2, DepthHz=1, SpdCalc=1, MaxSpd=NULL)#RmL=running mean length
 #SpdCalc=1 given at same Hz at Mag and Acc data, =2 Given at lower Hz than mag and acc data, =3 calculate via surge integration, =4 Calculate a constant speed, =5 Calculate via depth ***not implemented yet***
 {
 	#timer=proc.time()[3] # used to determine slow parts of the program and show some output while it is running to indicate where a failure occurs.
@@ -171,7 +171,7 @@ DeadReckoning <- function(rawdata, betas, decinc, Hz=16, RmL=2, DepthHz=1, SpdCa
 		xyz[,1]<-paste(as.character(rawdata$Date),as.character(rawdata$Time)) #Combine date and time
 	}
 	#print(c("9.2",proc.time()[3]-timer)) # Testing and failure information
-	xyz=xyz[(Hz-1):(dims[1]-Hz),]
+	xyz=xyz[((Hz * (0.5 * RmL))- 1):(dims[1] - (Hz * (0.5 * RmL))), ]#Only this line caused the RmL!=2 bug
 	
 	#print(c("10",proc.time()[3]-timer)) # Testing and failure information	
 	

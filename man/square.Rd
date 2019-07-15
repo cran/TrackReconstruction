@@ -6,7 +6,7 @@ Raw triaxial magnetomater and accelerometer data
 }
 \description{
 Fabricated data file 100 observations long to make a square.  Useful for exercises to understand how the 
-DeadReckoning algorithm works.
+\code{DeadReckoning} algorithm works.
 }
 \usage{data(rawdata)}
 \format{

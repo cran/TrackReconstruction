@@ -5,7 +5,7 @@
 Calculates Dead Reckoning 
 }
 \description{
-This function takes tri axial magnetometer, accelerometer and optional speed data to estimate 
+This function takes triaxial magnetometer, accelerometer and optional speed data to estimate 
 the path traveled (pseudotrack) by a tagged animal based on Wilson et al. (2007).
 }
 \usage{
@@ -25,11 +25,11 @@ accelerometer data between -1 and +1.  This can come from the \code{Standardize}
 vector of c(Declination, Inclination) values in decimal degrees format in that order.
 }
   \item{Hz}{
-frequency of data collection in Hz of magnetometers.  The assumption her is that the accelerometer Hz is at least
+frequency of data collection in Hz of magnetometers.  The assumption here is that the accelerometer Hz is at least
 as high as the magnetometers and that all the magnetometer channels have the same Hz.  See Details.
 }
   \item{RmL}{
-Running mean length in seconds, required to seperate "dynamic" and "static" acceleration.
+Running mean length in seconds, required to separate "dynamic" and "static" acceleration.
 }
   \item{DepthHz}{
 Frequency of data collection in Hz of Depth channel.
@@ -38,12 +38,12 @@ Frequency of data collection in Hz of Depth channel.
 Integer of value 1,2,3 or 4 (5 and 6 are unsupported) depending on type of speed data supplied, see details. 
 }
   \item{MaxSpd}{
-If SpdCalc=3, the max speed of your animal in m/s.  If SpdCalc=4, the constant speed of your animal in m/s.
+If \code{SpdCalc}=3, the max speed of your animal in m/s.  If \code{SpdCalc}=4, the constant speed of your animal in m/s.
 }
 }
 \details{
-Rawdata must have columns DateTime or seperated as Date and Time, plus Depth, MagSurge, MagHeave, MagSway, AccSurge, 
-AccHeave, AccSway and optionl Speed in a data frame with those exact column names (Mag=Magnetometer and Acc=
+Rawdata must have columns DateTime or separated as Date and Time, plus Depth, MagSurge, MagHeave, MagSway, AccSurge, 
+AccHeave, AccSway and optional Speed in a data frame with those exact column names (Mag=Magnetometer and Acc=
 Accelerometer).  It must have an extra number of rows =Hz*RmL*0.5 at beginning and end that will be trimmed on final
 output.  Because some users may program tags to collect acceleration data at a higher Hz than magnetometer data (for
 example when looking for a Jerk signal), the \code{DeadReckoning} function automatically subsets the data set to those samples (rows)
@@ -51,17 +51,17 @@ that do NOT have "NA" in the MagSurge column.
 
 Betas is a [2,6] data frame with intercept in the first row and slope in the second row and can be directly taken from
 Standardize function output or user input.  If you do not use the output of the Standardize function, the row names must be 
-c("B0 Intercept","B1 Sloope") and the column names must be c("MagSurge","MagHeave","MagSway","AccSurge","AccHeave","AccSway")
-thought the order is not important.  See the help on the \code{Standardize} function for more information.
+c("B0 Intercept","B1 Slope") and the column names must be c("MagSurge","MagHeave","MagSway","AccSurge","AccHeave","AccSway")
+though the order is not important.  See the help on the \code{Standardize} function for more information.
 
-Declination and inclination data can be found at various intenet sites such as the World Magnetic Model 2010 Calculator
+Declination and inclination data can be found at various internet sites such as the World Magnetic Model 2010 Calculator
 from the British Geological Survey (see references).
 
 RmL-please read Shepard et al.(2008) and perhaps Wilson et al.(2007) for information on an appropriate Running Mean 
 Length for your data and study animal.
 
 SpdCalc\cr
-=1 if Speed is supplied in rawdata at same Hz as Acc and Mag Hz in m/s.\cr
+=1 if Speed is supplied in rawdata at the same Hz as Acc and Mag Hz in m/s.\cr
 =2 if Speed is supplied in m/s but at Hz lower than Acc and Mag.\cr  
 =3 if no speed is supplied and should be estimated from integrating (a running sum) the dynamic portion of the surge 
 channel of acceleration and normalized using a linear model to meters/second from 0 to your max speed (MaxSpd) input.\cr
@@ -70,8 +70,8 @@ channel of acceleration and normalized using a linear model to meters/second fro
 =6 if speed is to be calculated from sound data.  ***Not yet implemented***
 }
 \value{
-data.frame with columns DateTime, Xdim, Ydim, Depth and Speed. DateTime has pasted together the date and time columns using
-\code{as.character}. Xdim and Ydim are cartesian coordinates from the origin. Depth has been linearly interpolated from 
+data.frame with columns DateTime, Xdim, Ydim, Depth and Speed. DateTime is the data and time columns pasted together using
+\code{as.character}. Xdim and Ydim are cartesian coordinates from the origin in meters. Depth has been linearly interpolated from 
 initial Depth Hz to Magnetometer Hz and Speed is either that supplied by the user or calculated via one of the methods
 outlined above.
 }

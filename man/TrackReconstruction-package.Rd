@@ -4,24 +4,24 @@
 \docType{package}
 \title{
 
-Reconstruct animal tracks from biologger data.  
+Reconstruct Animal Tracks from Biologger Data.  
 }
 \description{
 
 Given accelerometer, magnetometer, depth and optional speed data, this package will reconstruct animal paths.  Given GPS data, 
 pseudotracks can be geolocated.  The package was designed using northern fur seals (\code{Callorhinus ursinus}) but is probably suitable as a launching 
-pad for other air breathing marine vertebtrates.
+pad for other animals.
 }
 \details{
 \tabular{ll}{
 Package: \tab TrackReconstruction\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2014-04-01\cr
+Version: \tab 1.2\cr
+Date: \tab 2019-07-13\cr
 License: \tab GPL (>=2)\cr
 }
 Includes functions to Standardize logger data, format GPS data, find gaps in the raw data, navigation functions to 
-caluclate distance, bearing, latitude and longitude, functions to calculate pseudotracks, to georeference the tracks
+calculate distance, bearing, latitude and longitude, functions to calculate pseudotracks, to georeference the tracks
 and finally to plot the tracks with color bathymetry.  A vignette includes some additional Perl code to deal with large data files as well
 as additional plotting code to make 3D plots and 2D animations.
 

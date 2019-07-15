@@ -5,7 +5,7 @@
 Format GPS data
 }
 \description{
-Takes DateTime, Latitude and Longitude in Decimal Degrees and converts Latitude and Longitude into radians and calculates bearing
+Takes DateTime, Latitude and Longitude in decimal degrees and converts Latitude and Longitude into radians and calculates bearing
 and distance between consecutive locations 
 }
 \usage{
@@ -14,14 +14,14 @@ GPStable(rawdata)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{rawdata}{
-data frame with DateTime, or Date and Time seperately, in same format as deadreckoning data, Latitude and Longitude 
+data frame with DateTime, or Date and Time separately, in same format as deadreckoning data, Latitude and Longitude 
 in decimal degrees.  Must use those column labels.
 }
 }
 \details{
 Data must be provided in decimal degrees (e.g. 162.546).  Longitude values west of the prime meridian are 0 to -180.
 Latitude values south of the equator are 0 to -90.  DateTime must be in the same format as output of \code{DeadReckoning} 
-function or seperated as Date and Time that can be pasted together to create the same format as output of Deadreckoning 
+function or separated as Date and Time that can be pasted together to create the same format as output of the \code{Deadreckoning} 
 function.  Distance is calculated using the Spherical Law of Cosines (see references).
 }
 \value{
@@ -30,7 +30,7 @@ BearingRad, BearingDeg, DistanceKm.  BearingRad and BearingDeg are the bearing c
 DistanceKm is the distance between point x and point x-1.
 }
 \references{
-\url{http://www.movable-type.co.uk/scripts/latlong.html}
+https://www.movable-type.co.uk/scripts/latlong.html
 }
 \author{
 Brian Battaile
@@ -44,5 +44,3 @@ head(gpsformat)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

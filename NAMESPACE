@@ -1,4 +1,7 @@
 exportPattern("^[[:alpha:]]+")
 import(fields,RColorBrewer)
+importFrom("grDevices", "colorRampPalette", "terrain.colors")
+importFrom("graphics", "axis", "points")
+importFrom("stats", "approx", "filter", "lm")
 
 

@@ -17,7 +17,7 @@ A file with columns of latitude and longitude labeled as Latitude and Longitude
 }
 }
 \details{
-Internal function used in the Mapper function.  It attempts to account for the change in distance covered between longitude as latitude changes
+Internal function used in the \code{Mapper} function.  It attempts to account for the change in distance covered between longitude as latitude changes
 by using the cos(latitude) of the center of the latitude of the graph, and adjusting the longitude to cover the same distance.  Hence, the boarders
 on the graph are set first by making the distances in latitude and longitude approximately equal in meters, then 2.5\% is added on each end.
 }
@@ -48,5 +48,3 @@ Limits
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

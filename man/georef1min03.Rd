@@ -6,7 +6,7 @@ GeoReferenced fur seal track
 }
 \description{
 Georeferenced data from a fur seal track in the Bering Sea.  Data has been thinned to relocations
-every 1 minute.  This data set is used as an example in the vignette.  gpsdata03 is the complementary gps data for this pseudotrack.
+every 1 minute.  This data set is used as an example in the vignette.  \code{gpsdata03} is the complementary gps data for this pseudotrack.
 }
 \usage{data(georef1min03)}
 \format{
@@ -21,7 +21,7 @@ every 1 minute.  This data set is used as an example in the vignette.  gpsdata03
   }
 }
 \details{
-Date files georef1min01, georef1min02, georef1min26 and georef1min95 have the same structure
+Date files \code{georef1min01}, \code{georef1min02}, \code{georef1min26} and \code{georef1min95} have the same structure
 }
 \examples{
 data(georef1min03)

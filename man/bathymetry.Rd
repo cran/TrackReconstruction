@@ -17,30 +17,9 @@ Bathymetry data for the Eastern Bering Sea at a resolution of 30 arc seconds dow
   }
 }
 \details{
-If you want to do color graphing of the tracks within R I have provided a Mapper function to do this but it requires
-gridded bathymetric data to create the background map.  The source for this example data set comes from the General
-Bathymetric Chart of the Oceans or GEBCO at http://www.gebco.net.
-
-You will need to get their GridViewer software and data, currently there is a link to get it at \cr
-http://www.gebco.net/data_and_products/grid_display_software/
-
-which at the time of writing sent me to \cr 
-https://www.bodc.ac.uk/products/software_products/gebco_grid_display/
-
-There are currently two options for the world data file, a 1 arc min
-or 30 arc sec file.  The bathymetry data set is from the GEBCO_08 Grid a global 30 arc-second grid which is the larger
-and more detailed data.  If you have a very wide ranging animal (albatross, elephant seal etc.), the smaller data set 
-will probably be easier for R to handle and adequate for viewing the entire track, but you might want the more detailed
-data set to map portions of the track. Some experimentation by you may be necessary here.
-
-This is fairly easy to use, just open the grid viewer and choose whatever way to select the portion of the globe you 
-want to see, I used the "Exact Area" section in the Area tab.  This then produces a map of the data you selected and
-you can then export the data that made that map in an ascii (*.asc) file.  In order to import this into R as a data frame you 
-might need to edit the file, such as deleting the header, but especially make sure the delimiters between columns are consistent, in my files I get 
-multiple spaces between one column and a single space between the other column.  R may have a way to deal with this when importing files but 
-I typically open these files up in a text editor such as TextPad, view "Visible Spaces" and then do a find and replace to make the
-column delimiters either tab or comma.
-
+If you want to do color graphing of the tracks within R I have provided a \code{Mapper} function to do this but it requires
+gridded (raster) bathymetric data to create the background map.  The source for this example data set comes from the General
+Bathymetric Chart of the Oceans or GEBCO at \url{http://www.gebco.net}.
 }
 
 \examples{

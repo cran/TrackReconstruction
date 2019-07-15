@@ -7,7 +7,7 @@ Georeference the Dead Reckoning data between two GPS points
 \description{
 Takes relocation data and forces it to go through two known points (such as GPS fixes) at the beginning and end by 
 rotating the track and either expanding or contracting each section by a constant percentage.  The primary function used
-in the wrapper function \code{GeoRef}.
+in the wrapper function \code{GeoRef}, you should use \code{GeoRef} if you have more than two GPS locations for your animal track. 
 }
 \usage{
 GeoReference(drdata, gpsdata)
@@ -15,20 +15,20 @@ GeoReference(drdata, gpsdata)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{drdata}{
-Data frame produced by the DeadReckoning function
+Data frame from, or in a similar format as that produced by the \code{DeadReckoning} function
 }
   \item{gpsdata}{
-Data frame produced by the \code{GPStable} function.
+Data frame from, or in a similar format as that produced by the \code{GPStable} function.
 }
 }
 \details{
 TimeDate stamp of first entry of drdata and gpsdata must be the same.  The \code{GeoRef} function does this 
-for you my matching the DateTime stamp in the drdata and gpsdata.  The DateTime stamp of the drdata and gpsdata
+for you my matching the DateTime stamp in the \code{drdata} and \code{gpsdata}.  The DateTime stamp of the \code{drdata} and \code{gpsdata}
 must be in the same format.
 }
 \value{
 Returns a data frame with DateTime, Distance, LatRad, LongRad, Latitude, Longitude, Depth, Speed, NewX, NewY, and Bearing
-of the GeoReferenced DeadReckoning tracks.  NewX and NewY are cartesian coordinates in meters.  Distance is the distance 
+of the Georeferenced Deadreckoning tracks.  NewX and NewY are cartesian coordinates in meters.  Distance is the distance 
 from the origin to the new point in 2D.
 }
 \references{
@@ -61,5 +61,3 @@ points(gpsformat$Longitude[3],gpsformat$Latitude[3],pch="F",col="Blue")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

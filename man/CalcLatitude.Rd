@@ -31,7 +31,7 @@ in radians.  This function is primarily used internally in the \code{gpstable} a
 Latitude in radians
 }
 \references{
-\url{http://www.movable-type.co.uk/scripts/latlong.html}
+https://www.movable-type.co.uk/scripts/latlong.html
 }
 \author{
 Brian Battaile
@@ -46,5 +46,3 @@ Lat*360/(2*pi)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

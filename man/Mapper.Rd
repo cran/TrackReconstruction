@@ -20,7 +20,7 @@ Track file of latitude and longitude colums with those names (output of \code{Ge
 GPS file of latitude and longitude colums with those names
 }
   \item{bathyFile}{
-Basemap file made from latitude, longitude and depth data, see ?bathymetry for details
+Basemap file made from latitude, longitude and depth data, see \code{?bathymetry} for format details
 }
   \item{ExpFact}{
 Expansion Factor- a multiplier of how smooth you want your new background graph to be.  Larger numbers make it look
@@ -43,11 +43,11 @@ Title of your graph
 }
 }
 \details{
-See the help files for the bathymetry data set for an explaination of the starting point for creating the bathyFile.
+See \url{http://www.gebco.net} do download the raw bathymetric data to create the \code{bathyFile}.
 }
 
 \value{
-Given a bathymetic data file that is much larger than a given track, this function zooms the graph into where the data are
+Given a bathymetric data file that is much larger than a given track, this function zooms the graph into where the data are
 and smooths out the background data if they are pixilated.
 The idea is to have a single bathymetry file to make many graphs for many animals no matter where they go so long as the tracks are all
 within the area of the bathymetry file limits.  It creates a square graph that should adjust for the differences in actual
@@ -112,6 +112,4 @@ minlong = -177, maxlong = -163, Title = "Fun Graph!!!")
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
 

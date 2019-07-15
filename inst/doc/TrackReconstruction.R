@@ -1,7 +1,7 @@
 ### R code from vignette source 'TrackReconstruction.Snw'
 
 ###################################################
-### code chunk number 1: TrackReconstruction.Snw:325-329
+### code chunk number 1: TrackReconstruction.Snw:313-317
 ###################################################
  library(TrackReconstruction)
  betas<-Standardize(1,1,-1,1,1,1,-57.8,68.76,-61.8,64.2,-70.16,58.08,-10.1,9.55,
@@ -10,15 +10,16 @@
 
 
 ###################################################
-### code chunk number 2: TrackReconstruction.Snw:340-343
+### code chunk number 2: TrackReconstruction.Snw:329-333
 ###################################################
  data(rawdatagap)
  gaps<-GapFinder(rawdatagap, timediff = 1, timeformat = "%d-%b-%Y %H:%M:%S")
+ if(gaps[1,1]!=0) write.table(gaps, file = "gaps-1.csv", sep=",",row.names=FALSE)
  head(gaps)
 
 
 ###################################################
-### code chunk number 3: TrackReconstruction.Snw:354-357
+### code chunk number 3: TrackReconstruction.Snw:344-347
 ###################################################
  data(gpsdata02)
  gpsformat<-GPStable(gpsdata02)
@@ -26,25 +27,25 @@
 
 
 ###################################################
-### code chunk number 4: TrackReconstruction.Snw:369-376
+### code chunk number 4: TrackReconstruction.Snw:359-366
 ###################################################
  #get declination and inclination data for study area
  decinc<-c(10.228,65.918)
- #the fifth of 10 consecutive data sets from tag data from one individual with start and end 
- #times corresponding to GPS fixes (+ rows=Hz*RmL*0.5 on each end).
+ #example data set with start and end times corresponding to the first and seventh GPS 
+ #fixes from the gpsdata02 data set, plus additional rows=Hz*RmL*0.5 on each end.
  data(rawdata)
  DRoutput<-DeadReckoning(rawdata, betas, decinc, Hz = 16, RmL = 2, DepthHz = 1, SpdCalc=3,
  MaxSpd=3.5)
 
 
 ###################################################
-### code chunk number 5: TrackReconstruction.Snw:399-400
+### code chunk number 5: TrackReconstruction.Snw:389-390
 ###################################################
  Georeferenced<-GeoReference(DRoutput,gpsformat[5:6,])
 
 
 ###################################################
-### code chunk number 6: TrackReconstruction.Snw:444-462
+### code chunk number 6: TrackReconstruction.Snw:421-439
 ###################################################
  require(scatterplot3d)
  require(onion)
@@ -83,7 +84,7 @@
 
 
 ###################################################
-### code chunk number 8: TrackReconstruction.Snw:498-504
+### code chunk number 8: TrackReconstruction.Snw:475-481
 ###################################################
  data(georef1min01)
  limits<-GraphLimits(georef1min01)
@@ -122,7 +123,7 @@
 
 
 ###################################################
-### code chunk number 10: TrackReconstruction.Snw:537-538
+### code chunk number 10: TrackReconstruction.Snw:514-515
 ###################################################
  scatterplot3d(georef1min01$Longitude,georef1min01$Latitude,(georef1min01$Depth*-1),
  	color="black",#ifelse(georef1min01$SunTimes==1,"red","black"), shades night
@@ -150,7 +151,7 @@
 
 
 ###################################################
-### code chunk number 11: TrackReconstruction.Snw:586-589
+### code chunk number 11: TrackReconstruction.Snw:563-566
 ###################################################
  DateData<-seq(ISOdatetime(2009,07,14,00,00,00, tz="GMT"),ISOdatetime(2009,07,28,00,00,00,
  	tz="GMT"), by="min")

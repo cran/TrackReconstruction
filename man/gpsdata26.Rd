@@ -6,7 +6,7 @@ GPS raw data
 }
 \description{
 Complete gps file for northern fur seal track in the Bering Sea.  Data taken by a wildlife computers mk10-F tag.  
-This data set is used as an example in the \code{Mapper} function.  georef1min26 is the complementary pseudotrack data for these gps points.
+This data set is used as an example in the \code{Mapper} function.  \code{georef1min26} is the complementary pseudotrack data for these gps points.
 }
 \usage{data(gpsdata26)}
 \format{

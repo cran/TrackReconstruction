@@ -13,20 +13,20 @@ GeoRef(drdata, gpsfdata)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{drdata}{
-Data frame produced by the \code{DeadReckoning} function
+Data frame from, or similar in format as that produced by the \code{DeadReckoning} function. 
 }
   \item{gpsfdata}{
-Data frame produced by the \code{GPStable} function.
+Data frame from, or similar in format as that produced by the \code{GPStable} function.
 }
 }
 \details{
 Data that is not bookended by the DateTime stamp of the GPS relocations will be discarded.  The DateTime stamp of the drdata and gpsfdata
-must be in the same format.
+must be in the same format, see the \code{strptime} function help file for details.
 }
 \value{
 Returns a data frame with DateTime, Distance, LatRad, LongRad, Latitude, Longitude, Depth, Speed, NewX, NewY, and Bering
-of the GeoReferenced DeadReckoning tracks.  NewX and NewY are cartesian coordinates in meters.  Distance is the distance 
-from the origin to the new point in 2D.
+of the Georeferenced Deadreckoned tracks.  NewX and NewY are cartesian coordinates in meters.  Distance is the distance 
+from the origin to the georeferenced point in 2D.
 }
 \references{
 Wilson R.P., Liebsch,N., Davies,I.M., Quintana,F., Weimerskirch,H., Storch,S., Lucke,K., Siebert,U., Zankl,S., 
@@ -60,5 +60,3 @@ points(gpsformat$Longitude[3:6],gpsformat$Latitude[3:6],pch="*",col="Red")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
