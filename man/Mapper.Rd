@@ -43,7 +43,7 @@ Title of your graph
 }
 }
 \details{
-See \url{http://www.gebco.net} do download the raw bathymetric data to create the \code{bathyFile}.
+See \url{https://www.gebco.net} do download the raw bathymetric data to create the \code{bathyFile}.
 }
 
 \value{

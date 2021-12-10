@@ -19,7 +19,7 @@ Bathymetry data for the Eastern Bering Sea at a resolution of 30 arc seconds dow
 \details{
 If you want to do color graphing of the tracks within R I have provided a \code{Mapper} function to do this but it requires
 gridded (raster) bathymetric data to create the background map.  The source for this example data set comes from the General
-Bathymetric Chart of the Oceans or GEBCO at \url{http://www.gebco.net}.
+Bathymetric Chart of the Oceans or GEBCO at \url{https://www.gebco.net}.
 }
 
 \examples{

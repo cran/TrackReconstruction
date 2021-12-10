@@ -24,9 +24,9 @@ DeadReckoning <- function(rawdata, betas, decinc, Hz=16, RmL=2, DepthHz=1, SpdCa
 	 
 	# Calculate the running mean over runningmean length (two seconds of data) for the acc data
 	runningmean=matrix(0,dims[1],6)
-	runningmean[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),4]=filter(standardize1[1:dims[1],4],rep(1,(RmL*Hz*(0.5*RmL)))/(RmL*Hz*(0.5*RmL)))[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL))]
-	runningmean[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),5]=filter(standardize1[1:dims[1],5],rep(1,(RmL*Hz*(0.5*RmL)))/(RmL*Hz*(0.5*RmL)))[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL))]
-	runningmean[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),6]=filter(standardize1[1:dims[1],6],rep(1,(RmL*Hz*(0.5*RmL)))/(RmL*Hz*(0.5*RmL)))[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL))]
+	runningmean[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),4]=filter(standardize1[1:dims[1],4],rep(1,(Hz*(0.5*RmL)))/(RmL*Hz*(0.5*RmL)))[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL))]
+	runningmean[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),5]=filter(standardize1[1:dims[1],5],rep(1,(Hz*(0.5*RmL)))/(RmL*Hz*(0.5*RmL)))[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL))]
+	runningmean[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),6]=filter(standardize1[1:dims[1],6],rep(1,(Hz*(0.5*RmL)))/(RmL*Hz*(0.5*RmL)))[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL))]
 	runningmean[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),1:3]=standardize1[(Hz*(0.5*RmL)):(dims[1]-Hz*(0.5*RmL)),1:3] # Don't need column means for mag data but don't want to change the rest of the program
 	#print(c("2",proc.time()[3]-timer)) # Testing and failure information
 		

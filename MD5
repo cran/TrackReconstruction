@@ -1,10 +1,10 @@
-46378d1a5ead244688784f423d59b3a8 *DESCRIPTION
+f210d4d24bc81c06edd5fa5c9c148947 *DESCRIPTION
 13faca672ae9cec020256691f1ca7787 *NAMESPACE
 a35ada4a99c6f95ce71490493030fe06 *R/CalcBearing.R
 a40d07e716156b111b61232df99385c4 *R/CalcDistance.R
 59ba0c9bd9a9e0ce379e60f7124f5ffc *R/CalcLatitude.R
 f404dd6d1523fac79a58d4bd18d6f5ad *R/CalcLongitude.R
-c8131caf421a54dbb4844e0f83099222 *R/DeadReckoning.R
+035ceb58e17fca740489b8dc2318a600 *R/DeadReckoning.R
 d3ca62f6e82322bcfe968bc67af1ce23 *R/GPStable.R
 23c0d957b9942ecdc9d5f54f6d25b9db *R/GapFinder.R
 2f38c991af0f45cfa542649d103d1f69 *R/GeoRef.R
@@ -31,7 +31,7 @@ c6234acabadc45cafa5ba20ddd6c8fec *data/rawdatagap.rda
 34fdbd6f889da0fbe3b9c4b0677537b5 *data/square.rda
 f17ac17ab7560cf6f2a5592ecc334acd *inst/doc/TrackReconstruction.R
 cdaffe8de8ea1138658487aaf1799732 *inst/doc/TrackReconstruction.Snw
-dc4cdc6b6b9d1a41586c87a7a45ba794 *inst/doc/TrackReconstruction.pdf
+2d3f4c3541a00f3b9c60c0af16416923 *inst/doc/TrackReconstruction.pdf
 fa28358b18811985e0abc9e7434f7f70 *man/CalcBearing.Rd
 90d7b34496760eff127f420ee647aeaa *man/CalcDistance.Rd
 bdf8dd60f08941caf362df861f854048 *man/CalcLatitude.Rd
@@ -42,11 +42,11 @@ da7567293064b2b2f873a8308760761b *man/GapFinder.Rd
 ca20b92cf21dcefe5e78268fac5f5840 *man/GeoRef.Rd
 1a889ce6fde86cb5333d0355771e2124 *man/GeoReference.Rd
 5b2009ae68d10cc8f6de14b8a398d8e9 *man/GraphLimits.Rd
-9bf223de1cdda5c2b9ec8ed49f9ce2d2 *man/Mapper.Rd
+8edac2de8f16c226f2f68384593c3791 *man/Mapper.Rd
 58107556b392d26c354d100f5b35dab5 *man/Splitter.Rd
 6fa206a21243b3e47c27231a4b2f4e6f *man/Standardize.Rd
-8211977b9382d0efb0e7b897ceb5c882 *man/TrackReconstruction-package.Rd
-dbcbf72bf2c7f733886f1d86ad35318d *man/bathymetry.Rd
+a7754d6190b48c6a62fe4c79638fd173 *man/TrackReconstruction-package.Rd
+3a883efb18046e1f715004b310c11354 *man/bathymetry.Rd
 e1fe520160193bdb6374b80aa1eb8b23 *man/georef1min01.Rd
 1da5f52c49818abbb79fb2018e5a7736 *man/georef1min02.Rd
 fad9f66c898a6f69137d441dfff3c28c *man/georef1min03.Rd

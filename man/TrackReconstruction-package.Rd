@@ -16,8 +16,8 @@ pad for other animals.
 \tabular{ll}{
 Package: \tab TrackReconstruction\cr
 Type: \tab Package\cr
-Version: \tab 1.2\cr
-Date: \tab 2019-07-13\cr
+Version: \tab 1.3\cr
+Date: \tab 2021-12-10\cr
 License: \tab GPL (>=2)\cr
 }
 Includes functions to Standardize logger data, format GPS data, find gaps in the raw data, navigation functions to 

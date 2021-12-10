@@ -2,9 +2,9 @@ Package: TrackReconstruction
 Type: Package
 Title: Reconstruct Animal Tracks from Magnetometer, Accelerometer,
         Depth and Optional Speed Data
-Version: 1.2
-Date: 2019-07-14
-Author: Brian Battaile	
+Version: 1.3
+Date: 2021-12-10
+Author: Brian Battaile
 Maintainer: Brian Battaile <brian.battaile@gmail.com>
 Depends: R(>= 2.10.0), fields, RColorBrewer
 Suggests: lattice, onion, plotrix, rgl, scatterplot3d
@@ -12,6 +12,6 @@ Description: Reconstructs animal tracks from magnetometer, accelerometer, depth 
 License: GPL (>= 2)
 LazyLoad: yes
 NeedsCompilation: no
-Packaged: 2019-07-15 18:41:14 UTC; brianbattaile
+Packaged: 2021-12-10 21:17:16 UTC; brianbattaile
 Repository: CRAN
-Date/Publication: 2019-07-15 21:50:03 UTC
+Date/Publication: 2021-12-10 22:00:09 UTC
